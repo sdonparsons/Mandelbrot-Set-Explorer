@@ -59,7 +59,7 @@ else:
     screen = pygame.display.set_mode(RESOLUTION)
 
 pygame.display.set_caption("Mandelbrot Set Viewer")
-window_icon = pygame.image.load('icon.png')
+window_icon = pygame.image.load('MandelbrotSetExplorer/icon.png')
 pygame.display.set_icon(window_icon)
 
 COLOUR_SCALE_X = MAX_COLOUR / SCREEN_W
@@ -209,11 +209,11 @@ draw_mandelbrot()
 done = False
 while not done:
     for event in pygame.event.get():  # User did something
+        
         if event.type == pygame.QUIT:  # If user clicked close
             done = True  # Flag that we are done so we exit this loop
         elif event.type == pygame.MOUSEMOTION:
             pos = pygame.mouse.get_pos()
-
             def mouse_debugging():
                 width = axes.width
                 height = axes.height
@@ -238,5 +238,7 @@ while not done:
             y_click = mouse_pos[1]
             move_zoom(axes, mand, x_click, y_click)
             draw_mandelbrot()
+
     pygame.display.flip()
 pygame.quit()
+
